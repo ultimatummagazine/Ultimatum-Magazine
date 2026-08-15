@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimatum Magazine | Eventos, Conciertos y Cultura</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
+
+body{
+background:#050505;
+color:#fff;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(10px);
+z-index:999;
+border-bottom:1px solid #00a8ff33;
+}
+
+.logo{
+font-size:2rem;
+font-weight:800;
+color:white;
+text-shadow:0 0 20px #00a8ff;
+}
+
+.logo span{
+color:#00a8ff;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+margin-left:25px;
+font-weight:600;
+transition:.3s;
+}
+
+nav a:hover{
+color:#00a8ff;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
+url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1800&q=80');
+background-size:cover;
+background-position:center;
+}
+
+.hero-content h1{
+font-size:5rem;
+font-weight:800;
+margin-bottom:20px;
+text-shadow:0 0 25px #00a8ff;
+}
+
+.hero-content p{
+font-size:1.3rem;
+max-width:800px;
+margin:auto;
+line-height:1.7;
+color:#d8d8d8;
+}
+
+.buttons{
+margin-top:40px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+margin:10px;
+border-radius:50px;
+font-weight:700;
+text-decoration:none;
+transition:.4s;
+}
+
+.btn-primary{
+background:#00a8ff;
+color:white;
+box-shadow:0 0 25px #00a8ff;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+}
+
+.btn-secondary{
+border:2px solid #00a8ff;
+color:#00a8ff;
+}
+
+.section{
+padding:100px 8%;
+}
+
+.title{
+text-align:center;
+font-size:3rem;
+margin-bottom:60px;
+text-shadow:0 0 20px #00a8ff;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.card{
+background:#0b0b0b;
+border:1px solid #00a8ff33;
+border-radius:20px;
+overflow:hidden;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px #00a8ff55;
+}
+
+.card img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.card-content{
+padding:25px;
+}
+
+.card-content h3{
+margin-bottom:15px;
+color:#00a8ff;
+}
+
+.card-content p{
+line-height:1.6;
+color:#cfcfcf;
+}
+
+.agenda{
+background:#08111f;
+}
+
+.evento{
+padding:25px;
+border-left:4px solid #00a8ff;
+margin-bottom:20px;
+background:#0d1626;
+border-radius:10px;
+}
+
+.evento h4{
+color:#00a8ff;
+margin-bottom:8px;
+}
+
+.newsletter{
+text-align:center;
+padding:120px 8%;
+}
+
+.newsletter h2{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.newsletter input{
+padding:15px;
+width:350px;
+max-width:90%;
+border:none;
+border-radius:50px;
+margin-right:10px;
+}
+
+.newsletter button{
+padding:15px 30px;
+background:#00a8ff;
+border:none;
+color:white;
+font-weight:700;
+border-radius:50px;
+cursor:pointer;
+}
+
+footer{
+padding:50px;
+text-align:center;
+border-top:1px solid #00a8ff33;
+background:black;
+}
+
+footer p{
+color:#aaa;
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:3rem;
+}
+
+nav{
+display:none;
+}
+
+.title{
+font-size:2.2rem;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="logo">
+ULTIMATUM <span>MAGAZINE</span>
+</div>
+
+<nav>
+<a href="#">Inicio</a>
+<a href="#">Noticias</a>
+<a href="#">Conciertos</a>
+<a href="#">Eventos</a>
+<a href="#">Entrevistas</a>
+<a href="#">Contacto</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>ULTIMATUM MAGAZINE</h1>
+
+<p>
+Tu medio digital especializado en conciertos,
+eventos, festivales, cultura y entretenimiento.
+Cobertura exclusiva, entrevistas y la agenda más completa.
+</p>
+
+<div class="buttons">
+<a href="#" class="btn btn-primary">Últimas Noticias</a>
+<a href="#" class="btn btn-secondary">Agenda de Eventos</a>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">Noticias Destacadas</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f" alt="">
+<div class="card-content">
+<h3>Festival Internacional 2026</h3>
+<p>Las principales figuras de la música se reúnen en una edición histórica.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1503095396549-807759245b35" alt="">
+<div class="card-content">
+<h3>Entrevista Exclusiva</h3>
+<p>Conversamos con los artistas más influyentes del momento.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3" alt="">
+<div class="card-content">
+<h3>Conciertos Imperdibles</h3>
+<p>La guía definitiva de los mejores espectáculos del año.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section agenda">
+
+<h2 class="title">Próximos Eventos</h2>
+
+<div class="evento">
+<h4>Madrid Music Fest</h4>
+<p>12 de Julio · Madrid · España</p>
+</div>
+
+<div class="evento">
+<h4>Summer Live Festival</h4>
+<p>22 de Julio · Barcelona · España</p>
+</div>
+
+<div class="evento">
+<h4>Ultimatum Sessions</h4>
+<p>15 de Agosto · Cobertura Especial</p>
+</div>
+
+</section>
+
+<section class="newsletter">
+
+<h2>Únete a Ultimatum Magazine</h2>
+
+<p style="margin-bottom:30px;color:#bbb;">
+Recibe noticias, entrevistas y eventos exclusivos.
+</p>
+
+<input type="email" placeholder="Tu correo electrónico">
+<button>Suscribirme</button>
+
+</section>
+
+<footer>
+
+<h3>ULTIMATUM MAGAZINE</h3>
+
+<p>
+© 2026 Todos los derechos reservados.
+</p>
+
+</footer>
+
+</body>
+</html>
