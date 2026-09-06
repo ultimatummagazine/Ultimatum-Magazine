@@ -8,356 +8,627 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Montserrat',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
 }
 
+html{scroll-behavior:smooth;}
+
 body{
-background:#050505;
-color:#fff;
-overflow-x:hidden;
+    background:#050505;
+    color:#fff;
+    overflow-x:hidden;
 }
 
 header{
-position:fixed;
-top:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,.85);
-backdrop-filter:blur(10px);
-z-index:999;
-border-bottom:1px solid #00a8ff33;
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(10px);
+    z-index:999;
+    border-bottom:1px solid #00a8ff33;
 }
 
 .logo{
-font-size:2rem;
-font-weight:800;
-color:white;
-text-shadow:0 0 20px #00a8ff;
+    font-size:2rem;
+    font-weight:800;
+    color:white;
+    text-shadow:0 0 20px #00a8ff;
 }
 
-.logo span{
-color:#00a8ff;
-}
+.logo span{color:#00a8ff;}
 
 nav a{
-text-decoration:none;
-color:white;
-margin-left:25px;
-font-weight:600;
-transition:.3s;
+    text-decoration:none;
+    color:white;
+    margin-left:25px;
+    font-weight:600;
+    transition:.3s;
 }
 
-nav a:hover{
-color:#00a8ff;
-}
+nav a:hover{color:#00a8ff;}
 
 .hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:0 20px;
-background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
-url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1800&q=80');
-background-size:cover;
-background-position:center;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 20px;
+    background:
+        linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
+        url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1800&q=80');
+    background-size:cover;
+    background-position:center;
 }
 
 .hero-content h1{
-font-size:5rem;
-font-weight:800;
-margin-bottom:20px;
-text-shadow:0 0 25px #00a8ff;
+    font-size:5rem;
+    font-weight:800;
+    margin-bottom:20px;
+    text-shadow:0 0 25px #00a8ff;
 }
 
 .hero-content p{
-font-size:1.3rem;
-max-width:800px;
-margin:auto;
-line-height:1.7;
-color:#d8d8d8;
+    font-size:1.3rem;
+    max-width:800px;
+    margin:auto;
+    line-height:1.7;
+    color:#d8d8d8;
 }
 
-.buttons{
-margin-top:40px;
-}
+.buttons{margin-top:40px;}
 
 .btn{
-display:inline-block;
-padding:15px 35px;
-margin:10px;
-border-radius:50px;
-font-weight:700;
-text-decoration:none;
-transition:.4s;
+    display:inline-block;
+    padding:15px 35px;
+    margin:10px;
+    border-radius:50px;
+    font-weight:700;
+    text-decoration:none;
+    transition:.4s;
 }
 
 .btn-primary{
-background:#00a8ff;
-color:white;
-box-shadow:0 0 25px #00a8ff;
+    background:#00a8ff;
+    color:white;
+    box-shadow:0 0 25px #00a8ff;
 }
 
-.btn-primary:hover{
-transform:translateY(-5px);
-}
+.btn-primary:hover{transform:translateY(-5px);}
 
 .btn-secondary{
-border:2px solid #00a8ff;
-color:#00a8ff;
+    border:2px solid #00a8ff;
+    color:#00a8ff;
 }
 
-.section{
-padding:100px 8%;
-}
+.section{padding:100px 8%;}
 
 .title{
-text-align:center;
-font-size:3rem;
-margin-bottom:60px;
-text-shadow:0 0 20px #00a8ff;
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:60px;
+    text-shadow:0 0 20px #00a8ff;
 }
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
 }
 
 .card{
-background:#0b0b0b;
-border:1px solid #00a8ff33;
-border-radius:20px;
-overflow:hidden;
-transition:.4s;
+    background:#0b0b0b;
+    border:1px solid #00a8ff33;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px #00a8ff55;
+    transform:translateY(-10px);
+    box-shadow:0 0 30px #00a8ff55;
 }
 
 .card img{
-width:100%;
-height:240px;
-object-fit:cover;
+    width:100%;
+    height:240px;
+    object-fit:cover;
 }
 
-.card-content{
-padding:25px;
-}
+.card-content{padding:25px;}
 
 .card-content h3{
-margin-bottom:15px;
-color:#00a8ff;
+    margin-bottom:15px;
+    color:#00a8ff;
 }
 
 .card-content p{
-line-height:1.6;
-color:#cfcfcf;
+    line-height:1.6;
+    color:#cfcfcf;
 }
 
-.agenda{
-background:#08111f;
+.card-link{
+    display:inline-block;
+    margin-top:18px;
+    color:#00a8ff;
+    font-weight:700;
+    text-decoration:none;
 }
+
+/* =========================
+   CCME 2026
+========================= */
+
+.ccme-section{
+    padding:110px 8%;
+    background:
+        radial-gradient(circle at top right, rgba(0,168,255,.12), transparent 35%),
+        #060606;
+}
+
+.ccme-intro{
+    max-width:1000px;
+    margin:0 auto 55px;
+    text-align:center;
+}
+
+.ccme-kicker{
+    display:inline-block;
+    color:#00a8ff;
+    font-size:.85rem;
+    font-weight:800;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.ccme-intro h2{
+    font-size:clamp(2.5rem,6vw,5rem);
+    line-height:1;
+    margin-bottom:25px;
+    text-shadow:0 0 25px #00a8ff55;
+}
+
+.ccme-intro p{
+    max-width:850px;
+    margin:auto;
+    color:#cfcfcf;
+    line-height:1.9;
+    font-size:1.08rem;
+}
+
+.ccme-cover{
+    max-width:1050px;
+    margin:0 auto 70px;
+    position:relative;
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid #00a8ff44;
+    box-shadow:0 0 45px #00a8ff18;
+}
+
+.ccme-cover img{
+    width:100%;
+    display:block;
+    max-height:850px;
+    object-fit:cover;
+    object-position:center;
+}
+
+.ccme-cover-caption{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:70px 35px 30px;
+    background:linear-gradient(transparent,rgba(0,0,0,.92));
+}
+
+.ccme-cover-caption strong{
+    font-size:1.6rem;
+}
+
+.ccme-story{
+    max-width:900px;
+    margin:0 auto 80px;
+}
+
+.ccme-story p{
+    color:#d5d5d5;
+    line-height:1.9;
+    font-size:1.05rem;
+    margin-bottom:20px;
+}
+
+.ccme-story .lead{
+    font-size:1.3rem;
+    color:white;
+}
+
+.ccme-gallery{
+    max-width:1150px;
+    margin:auto;
+}
+
+.ccme-gallery h3{
+    font-size:2.2rem;
+    margin-bottom:35px;
+    text-align:center;
+}
+
+.ccme-gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+}
+
+.ccme-photo{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    background:#0b0b0b;
+    border:1px solid #00a8ff2b;
+    min-height:350px;
+}
+
+.ccme-photo img{
+    width:100%;
+    height:100%;
+    min-height:520px;
+    display:block;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.ccme-photo:hover img{transform:scale(1.04);}
+
+.ccme-photo-info{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:55px 24px 22px;
+    background:linear-gradient(transparent,rgba(0,0,0,.9));
+}
+
+.ccme-photo-info h4{
+    font-size:1.45rem;
+}
+
+.ccme-photo-info span{
+    color:#00a8ff;
+    font-size:.78rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:700;
+}
+
+.agenda{background:#08111f;}
 
 .evento{
-padding:25px;
-border-left:4px solid #00a8ff;
-margin-bottom:20px;
-background:#0d1626;
-border-radius:10px;
+    padding:25px;
+    border-left:4px solid #00a8ff;
+    margin-bottom:20px;
+    background:#0d1626;
+    border-radius:10px;
 }
 
 .evento h4{
-color:#00a8ff;
-margin-bottom:8px;
+    color:#00a8ff;
+    margin-bottom:8px;
 }
 
 .newsletter{
-text-align:center;
-padding:120px 8%;
+    text-align:center;
+    padding:120px 8%;
 }
 
 .newsletter h2{
-font-size:3rem;
-margin-bottom:20px;
+    font-size:3rem;
+    margin-bottom:20px;
 }
 
 .newsletter input{
-padding:15px;
-width:350px;
-max-width:90%;
-border:none;
-border-radius:50px;
-margin-right:10px;
+    padding:15px;
+    width:350px;
+    max-width:90%;
+    border:none;
+    border-radius:50px;
+    margin-right:10px;
 }
 
 .newsletter button{
-padding:15px 30px;
-background:#00a8ff;
-border:none;
-color:white;
-font-weight:700;
-border-radius:50px;
-cursor:pointer;
+    padding:15px 30px;
+    background:#00a8ff;
+    border:none;
+    color:white;
+    font-weight:700;
+    border-radius:50px;
+    cursor:pointer;
 }
 
 footer{
-padding:50px;
-text-align:center;
-border-top:1px solid #00a8ff33;
-background:black;
+    padding:50px;
+    text-align:center;
+    border-top:1px solid #00a8ff33;
+    background:black;
 }
 
-footer p{
-color:#aaa;
-}
+footer p{color:#aaa;}
 
 @media(max-width:768px){
+    header{padding:16px 5%;}
 
-.hero-content h1{
-font-size:3rem;
+    .logo{font-size:1.35rem;}
+
+    nav{display:none;}
+
+    .hero-content h1{font-size:3rem;}
+
+    .title{font-size:2.2rem;}
+
+    .section,.ccme-section{padding:75px 5%;}
+
+    .ccme-cover img{min-height:500px;}
+
+    .ccme-gallery-grid{grid-template-columns:1fr;}
+
+    .ccme-photo img{min-height:500px;}
+
+    .newsletter h2{font-size:2.2rem;}
+
+    .newsletter input{
+        margin:0 0 12px;
+        width:100%;
+    }
 }
-
-nav{
-display:none;
-}
-
-.title{
-font-size:2.2rem;
-}
-
-}
-
 </style>
 </head>
+
 <body>
 
 <header>
+    <div class="logo">
+        ULTIMATUM <span>MAGAZINE</span>
+    </div>
 
-<div class="logo">
-ULTIMATUM <span>MAGAZINE</span>
-</div>
-
-<nav>
-<a href="#">Inicio</a>
-<a href="#">Noticias</a>
-<a href="#">Conciertos</a>
-<a href="#">Eventos</a>
-<a href="#">Entrevistas</a>
-<a href="#">Contacto</a>
-</nav>
-
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#noticias">Noticias</a>
+        <a href="#ccme-2026">CCME 2026</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#">Entrevistas</a>
+        <a href="#">Contacto</a>
+    </nav>
 </header>
 
 <section class="hero">
+    <div class="hero-content">
+        <h1>ULTIMATUM MAGAZINE</h1>
 
-<div class="hero-content">
+        <p>
+            Tu medio digital especializado en conciertos,
+            eventos, festivales, cultura y entretenimiento.
+            Cobertura exclusiva, entrevistas y la agenda más completa.
+        </p>
 
-<h1>ULTIMATUM MAGAZINE</h1>
+        <div class="buttons">
+            <a href="#noticias" class="btn btn-primary">Últimas Noticias</a>
+            <a href="#eventos" class="btn btn-secondary">Agenda de Eventos</a>
+        </div>
+    </div>
+</section>
 
-<p>
-Tu medio digital especializado en conciertos,
-eventos, festivales, cultura y entretenimiento.
-Cobertura exclusiva, entrevistas y la agenda más completa.
-</p>
+<section class="section" id="noticias">
+    <h2 class="title">Noticias Destacadas</h2>
 
-<div class="buttons">
-<a href="#" class="btn btn-primary">Últimas Noticias</a>
-<a href="#" class="btn btn-secondary">Agenda de Eventos</a>
-</div>
+    <div class="grid">
 
-</div>
+        <div class="card">
+            <img src="images/ccme-2026-portada.jpeg" alt="Coca-Cola Music Experience 2026">
+            <div class="card-content">
+                <h3>CCME 2026: estuvimos allí</h3>
+                <p>
+                    Música, sorpresas, grandes actuaciones y muchos momentos
+                    para recordar en una edición que vivimos de primera mano.
+                </p>
+                <a class="card-link" href="#ccme-2026">Leer la cobertura →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1503095396549-807759245b35" alt="Entrevista">
+            <div class="card-content">
+                <h3>Entrevista Exclusiva</h3>
+                <p>Conversamos con los artistas más influyentes del momento.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3" alt="Conciertos">
+            <div class="card-content">
+                <h3>Conciertos Imperdibles</h3>
+                <p>La guía definitiva de los mejores espectáculos del año.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="ccme-section" id="ccme-2026">
+
+    <div class="ccme-intro">
+        <span class="ccme-kicker">Cobertura especial · Ultimatum Magazine</span>
+
+        <h2>CCME 2026</h2>
+
+        <p>
+            Hemos estado en Coca-Cola Music Experience 2026 y solo podemos
+            decir una cosa: <strong>ha sido increíble</strong>. Una edición
+            cargada de música, sorpresas, energía y momentos divertidos que
+            hicieron que la experiencia fuera todavía más especial.
+        </p>
+    </div>
+
+    <div class="ccme-cover">
+        <img src="images/ccme-2026-portada.jpeg"
+             alt="Portada de Ultimatum Magazine en Coca-Cola Music Experience 2026">
+
+        <div class="ccme-cover-caption">
+            <strong>Ultimatum Magazine en CCME 2026</strong>
+        </div>
+    </div>
+
+    <article class="ccme-story">
+
+        <p class="lead">
+            Desde que llegamos al recinto hasta el último concierto, el ambiente
+            estuvo marcado por las ganas de disfrutar y por una programación
+            llena de artistas y sorpresas.
+        </p>
+
+        <p>
+            CCME 2026 nos dejó una jornada llena de directos, encuentros y
+            momentos que vivimos desde muy cerca. El festival volvió a reunir
+            a miles de personas con un objetivo común: disfrutar de la música,
+            compartir la experiencia y no perderse nada de lo que ocurría
+            sobre el escenario.
+        </p>
+
+        <p>
+            Entre actuaciones, luces, público y momentos inesperados, hubo
+            tiempo para todo: cantar a pleno pulmón, bailar, reírnos y, por
+            supuesto, sacar nuestra cámara para guardar algunos de los
+            mejores momentos de la jornada.
+        </p>
+
+        <p>
+            Y para que podáis vivir una pequeña parte de lo que vimos, aquí
+            os dejamos nuestra selección de fotografías de algunos de los
+            artistas que pasaron por el festival.
+        </p>
+
+    </article>
+
+    <div class="ccme-gallery">
+        <h3>Los artistas de CCME 2026</h3>
+
+        <div class="ccme-gallery-grid">
+
+            <div class="ccme-photo">
+                <img src="images/natalia-lacunza.jpeg" alt="Natalia Lacunza en CCME 2026">
+                <div class="ccme-photo-info">
+                    <span>CCME 2026</span>
+                    <h4>Natalia Lacunza</h4>
+                </div>
+            </div>
+
+            <div class="ccme-photo">
+                <img src="images/wisin.jpeg" alt="Wisin en CCME 2026">
+                <div class="ccme-photo-info">
+                    <span>CCME 2026</span>
+                    <h4>Wisin</h4>
+                </div>
+            </div>
+
+            <div class="ccme-photo">
+                <img src="images/violeta-hodar.jpeg" alt="Violeta Hódar en CCME 2026">
+                <div class="ccme-photo-info">
+                    <span>CCME 2026</span>
+                    <h4>Violeta Hódar</h4>
+                </div>
+            </div>
+
+            <div class="ccme-photo">
+                <img src="images/milo-j.jpeg" alt="Milo J en CCME 2026">
+                <div class="ccme-photo-info">
+                    <span>CCME 2026</span>
+                    <h4>Milo J</h4>
+                </div>
+            </div>
+
+            <div class="ccme-photo">
+                <img src="images/taichu.jpeg" alt="Taichu en CCME 2026">
+                <div class="ccme-photo-info">
+                    <span>CCME 2026</span>
+                    <h4>Taichu</h4>
+                </div>
+            </div>
+
+            <div class="ccme-photo">
+                <img src="images/dib.jpeg" alt="Dib en CCME 2026">
+                <div class="ccme-photo-info">
+                    <span>CCME 2026</span>
+                    <h4>Dib</h4>
+                </div>
+            </div>
+
+            <div class="ccme-photo">
+                <img src="images/cerotkm.jpeg" alt="Cerotkm en CCME 2026">
+                <div class="ccme-photo-info">
+                    <span>CCME 2026</span>
+                    <h4>Cerotkm</h4>
+                </div>
+            </div>
+
+            <div class="ccme-photo">
+                <img src="images/pikeras.jpeg" alt="Pikeras en CCME 2026">
+                <div class="ccme-photo-info">
+                    <span>CCME 2026</span>
+                    <h4>Pikeras</h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </section>
 
-<section class="section">
+<section class="section agenda" id="eventos">
+    <h2 class="title">Próximos Eventos</h2>
 
-<h2 class="title">Noticias Destacadas</h2>
+    <div class="evento">
+        <h4>Madrid Music Fest</h4>
+        <p>12 de Julio · Madrid · España</p>
+    </div>
 
-<div class="grid">
+    <div class="evento">
+        <h4>Summer Live Festival</h4>
+        <p>22 de Julio · Barcelona · España</p>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f" alt="">
-<div class="card-content">
-<h3>Festival Internacional 2026</h3>
-<p>Las principales figuras de la música se reúnen en una edición histórica.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1503095396549-807759245b35" alt="">
-<div class="card-content">
-<h3>Entrevista Exclusiva</h3>
-<p>Conversamos con los artistas más influyentes del momento.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3" alt="">
-<div class="card-content">
-<h3>Conciertos Imperdibles</h3>
-<p>La guía definitiva de los mejores espectáculos del año.</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<section class="section agenda">
-
-<h2 class="title">Próximos Eventos</h2>
-
-<div class="evento">
-<h4>Madrid Music Fest</h4>
-<p>12 de Julio · Madrid · España</p>
-</div>
-
-<div class="evento">
-<h4>Summer Live Festival</h4>
-<p>22 de Julio · Barcelona · España</p>
-</div>
-
-<div class="evento">
-<h4>Ultimatum Sessions</h4>
-<p>15 de Agosto · Cobertura Especial</p>
-</div>
-
+    <div class="evento">
+        <h4>Ultimatum Sessions</h4>
+        <p>15 de Agosto · Cobertura Especial</p>
+    </div>
 </section>
 
 <section class="newsletter">
+    <h2>Únete a Ultimatum Magazine</h2>
 
-<h2>Únete a Ultimatum Magazine</h2>
+    <p style="margin-bottom:30px;color:#bbb;">
+        Recibe noticias, entrevistas y eventos exclusivos.
+    </p>
 
-<p style="margin-bottom:30px;color:#bbb;">
-Recibe noticias, entrevistas y eventos exclusivos.
-</p>
-
-<input type="email" placeholder="Tu correo electrónico">
-<button>Suscribirme</button>
-
+    <input type="email" placeholder="Tu correo electrónico">
+    <button>Suscribirme</button>
 </section>
 
 <footer>
+    <h3>ULTIMATUM MAGAZINE</h3>
 
-<h3>ULTIMATUM MAGAZINE</h3>
-
-<p>
-© 2026 Todos los derechos reservados.
-</p>
-
+    <p>
+        © 2026 Todos los derechos reservados.
+    </p>
 </footer>
 
 </body>
