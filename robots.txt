@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ultimatummagazine.github.io/Ultimatum-Magazine/sitemap.xml
