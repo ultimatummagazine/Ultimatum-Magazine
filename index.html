@@ -38,6 +38,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
+
 <style>
 
 /* =========================================
@@ -210,7 +211,6 @@ nav a:hover{
 .btn-primary{
     background:#111;
     color:#fff;
-    box-shadow:none;
 }
 
 .btn-primary:hover{
@@ -244,7 +244,6 @@ nav a:hover{
     font-size:clamp(2.2rem,5vw,3.5rem);
     margin-bottom:60px;
     color:#171717;
-    text-shadow:none;
 }
 
 .section-heading-editorial{
@@ -380,7 +379,6 @@ nav a:hover{
     line-height:1;
     margin-bottom:25px;
     color:#171717;
-    text-shadow:none;
 }
 
 .ccme-intro p{
@@ -396,7 +394,6 @@ nav a:hover{
     max-width:1500px;
     margin:0 auto 70px;
     position:relative;
-    border-radius:0;
     overflow:hidden;
     border:1px solid #00a8ff44;
     box-shadow:0 0 45px #00a8ff18;
@@ -425,6 +422,13 @@ nav a:hover{
 
 .ccme-cover-caption strong{
     font-size:1.8rem;
+}
+
+.ccme-cover-caption span{
+    display:block;
+    margin-top:10px;
+    color:#d8d8d8;
+    font-size:.95rem;
 }
 
 .ccme-story{
@@ -469,7 +473,6 @@ nav a:hover{
     width:100%;
     height:550px;
     overflow:hidden;
-    border-radius:0;
     background:#fff;
     border:1px solid #00a8ff2b;
 }
@@ -524,13 +527,6 @@ nav a:hover{
             transparent 35%
         ),
         #f4f1eb;
-}
-
-.aitana-cover .ccme-cover-caption span{
-    display:block;
-    margin-top:10px;
-    color:#d8d8d8;
-    font-size:.95rem;
 }
 
 .aitana-facts{
@@ -689,10 +685,17 @@ nav a:hover{
     background:#00a8ff;
 }
 
+.contact-submit:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
 .contact-note{
-    margin-top:15px;
+    min-height:20px;
+    margin-top:18px;
     color:#777;
     font-size:.78rem;
+    line-height:1.5;
 }
 
 
@@ -795,10 +798,6 @@ footer p{
         height:250px;
     }
 
-    .ccme-cover{
-        border-radius:15px;
-    }
-
     .ccme-cover img{
         height:450px;
     }
@@ -830,16 +829,6 @@ footer p{
         width:100%;
     }
 
-}
-
-
-/* =========================================
-   ACCESIBILIDAD
-========================================= */
-
-.contact-field input::placeholder,
-.contact-field textarea::placeholder{
-    color:#999;
 }
 
 </style>
@@ -1697,45 +1686,10 @@ footer p{
     </p>
 
 
-    <!--
-        FORMULARIO DE CONTACTO
-
-        Los mensajes se enviarán a:
-        ultimatum.magazine@gmail.com
-    -->
-
     <form
-        action="https://formsubmit.co/ultimatum.magazine@gmail.com"
-        method="POST"
+        id="contactForm"
         class="contact-form"
     >
-
-        <!-- Asunto del correo que recibirás -->
-
-        <input
-            type="hidden"
-            name="_subject"
-            value="Nuevo mensaje desde Ultimatum Magazine"
-        >
-
-
-        <!-- Evita que FormSubmit muestre su página de respuesta -->
-
-        <input
-            type="hidden"
-            name="_captcha"
-            value="false"
-        >
-
-
-        <!-- Página a la que vuelve el usuario después de enviar -->
-
-        <input
-            type="hidden"
-            name="_next"
-            value="https://ultimatummagazine.github.io/Ultimatum-Magazine/#contacto"
-        >
-
 
         <div class="contact-grid">
 
@@ -1751,6 +1705,7 @@ footer p{
                     id="nombre"
                     name="name"
                     placeholder="Tu nombre"
+                    autocomplete="name"
                     required
                 >
 
@@ -1768,6 +1723,7 @@ footer p{
                     id="email"
                     name="email"
                     placeholder="tu@email.com"
+                    autocomplete="email"
                     required
                 >
 
@@ -1786,7 +1742,7 @@ footer p{
             <input
                 type="text"
                 id="asunto"
-                name="message_subject"
+                name="subject"
                 placeholder="¿En qué podemos ayudarte?"
                 required
             >
@@ -1814,14 +1770,17 @@ footer p{
         <button
             type="submit"
             class="contact-submit"
+            id="contactSubmit"
         >
             ENVIAR MENSAJE →
         </button>
 
 
-        <p class="contact-note">
-            Te responderemos lo antes posible.
-        </p>
+        <p
+            class="contact-note"
+            id="contactStatus"
+            aria-live="polite"
+        ></p>
 
     </form>
 
@@ -1843,6 +1802,128 @@ footer p{
     </p>
 
 </footer>
+
+
+<!-- =========================================
+     FORMULARIO DE CONTACTO
+     FORMSUBMIT AJAX
+========================================= -->
+
+<script>
+
+const contactForm = document.getElementById("contactForm");
+
+const contactButton = document.getElementById("contactSubmit");
+
+const contactStatus = document.getElementById("contactStatus");
+
+
+contactForm.addEventListener("submit", async function(event){
+
+    event.preventDefault();
+
+
+    /*
+        Evita varios envíos mientras se procesa
+        el mensaje.
+    */
+
+    contactButton.disabled = true;
+
+    contactButton.textContent = "ENVIANDO...";
+
+    contactStatus.textContent = "";
+
+    contactStatus.style.color = "#777";
+
+
+    const formData = new FormData(contactForm);
+
+
+    /*
+        FormSubmit procesa el formulario
+        y lo envía a:
+
+        ultimatum.magazine@gmail.com
+    */
+
+    try{
+
+        const response = await fetch(
+            "https://formsubmit.co/ajax/ultimatum.magazine@gmail.com",
+            {
+                method:"POST",
+
+                headers:{
+                    "Accept":"application/json"
+                },
+
+                body:formData
+            }
+        );
+
+
+        /*
+            Intentamos leer la respuesta
+            del servicio.
+        */
+
+        const data = await response.json();
+
+
+        if(data.success === true){
+
+            contactStatus.textContent =
+                "✓ Mensaje enviado correctamente. Gracias por contactar con Ultimatum Magazine.";
+
+            contactStatus.style.color = "#008f5a";
+
+
+            /*
+                Limpia el formulario
+                después del envío.
+            */
+
+            contactForm.reset();
+
+        }else{
+
+            contactStatus.textContent =
+                "No se ha podido enviar el mensaje. Inténtalo de nuevo.";
+
+            contactStatus.style.color = "#d00000";
+
+        }
+
+
+    }catch(error){
+
+        console.error(
+            "Error al enviar el formulario:",
+            error
+        );
+
+
+        contactStatus.textContent =
+            "Ha ocurrido un error al enviar el mensaje. Comprueba tu conexión e inténtalo de nuevo.";
+
+        contactStatus.style.color = "#d00000";
+
+    }
+
+
+    /*
+        Reactiva el botón.
+    */
+
+    contactButton.disabled = false;
+
+    contactButton.textContent =
+        "ENVIAR MENSAJE →";
+
+});
+
+</script>
 
 
 </body>
