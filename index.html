@@ -920,6 +920,182 @@ footer p {
     color: #bbbbbb;
 }
 
+
+
+/* =========================================
+   HOME 2.0 — DISEÑO EDITORIAL FORMAL
+   ========================================= */
+.hero{
+    min-height:calc(100vh - 78px);
+    margin-top:78px;
+    padding:90px 6% 85px;
+    background:#f7f6f3;
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid #d9d9d6;
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    top:0;left:6%;right:6%;
+    height:1px;
+    background:#171717;
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    width:420px;height:420px;
+    right:-180px;bottom:-220px;
+    border:1px solid rgba(0,168,255,.16);
+    border-radius:50%;
+}
+.hero-content{
+    max-width:1180px;
+    margin:0 auto;
+    text-align:left;
+    position:relative;
+    z-index:2;
+}
+.hero-kicker{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:28px;
+    font-size:.72rem;
+    font-weight:800;
+    letter-spacing:3px;
+    color:#00a8ff;
+}
+.hero-kicker::before{
+    content:"";
+    width:48px;
+    height:2px;
+    background:#00a8ff;
+}
+.hero-content h1{
+    max-width:1050px;
+    margin:0 0 28px;
+    font-size:clamp(3.4rem,8vw,8.2rem);
+    line-height:.88;
+    letter-spacing:-5px;
+    font-weight:800;
+    color:#111;
+}
+.hero-content h1 span{color:#00a8ff;}
+.hero-content p{
+    max-width:650px;
+    margin:0;
+    font-size:1.05rem;
+    line-height:1.8;
+    color:#555;
+}
+.buttons{
+    display:flex;
+    gap:12px;
+    margin-top:38px;
+}
+.btn{
+    margin:0;
+    border-radius:0;
+    padding:14px 22px;
+    font-size:.78rem;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+}
+.btn-primary{
+    background:#111;
+    color:#fff;
+    box-shadow:none;
+}
+.btn-primary:hover{
+    background:#00a8ff;
+    transform:none;
+}
+.btn-secondary{
+    border:1px solid #111;
+    color:#111;
+    background:transparent;
+}
+.btn-secondary:hover{
+    background:#111;
+    color:#fff;
+}
+.section{
+    background:#f7f6f3;
+    padding:100px 6%;
+}
+.section-heading-editorial{
+    max-width:1180px;
+    margin:0 auto 45px;
+    border-top:1px solid #171717;
+    padding-top:18px;
+}
+.section-heading-editorial > span{
+    display:block;
+    font-size:.68rem;
+    font-weight:800;
+    letter-spacing:2.5px;
+    color:#00a8ff;
+    margin-bottom:10px;
+}
+.section-heading-editorial .title{
+    margin:0 0 10px;
+    text-align:left;
+    font-size:clamp(2rem,4vw,3.5rem);
+    letter-spacing:-1.5px;
+}
+.section-heading-editorial p{
+    color:#666;
+    font-size:.95rem;
+}
+.grid{
+    max-width:1180px;
+    margin:0 auto;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+.card{
+    border:1px solid #d8d8d5;
+    border-radius:0;
+    box-shadow:none;
+    overflow:hidden;
+}
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:none;
+}
+.card img{
+    border-radius:0;
+    height:290px;
+    object-fit:cover;
+}
+.card-content{padding:25px;}
+.card-content h3{
+    color:#111;
+    font-size:1.18rem;
+    line-height:1.35;
+}
+.card-content p{
+    color:#666;
+    line-height:1.65;
+    font-size:.88rem;
+}
+.card-link{
+    color:#111;
+    font-size:.72rem;
+    font-weight:800;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+}
+.card-link:hover{color:#00a8ff;}
+@media(max-width:800px){
+    .hero{margin-top:70px;min-height:calc(100vh - 70px);padding:70px 7% 65px;}
+    .hero-content h1{font-size:clamp(3rem,15vw,5rem);letter-spacing:-3px;}
+    .buttons{flex-direction:column;align-items:flex-start;}
+    .btn{width:auto;}
+    .grid{grid-template-columns:1fr;}
+}
+
 </style>
 </head>
 
@@ -970,15 +1146,15 @@ footer p {
 
     <div class="hero-content">
 
+        <div class="hero-kicker">MÚSICA · CULTURA · EVENTOS</div>
+
         <h1>
-            ULTIMATUM MAGAZINE
+            ULTIMATUM <span>MAGAZINE</span>
         </h1>
 
         <p>
-            Tu medio digital especializado en conciertos,
-            eventos, festivales, cultura y entretenimiento.
-            Cobertura exclusiva, entrevistas y la agenda
-            más completa.
+            Actualidad musical, conciertos, festivales, entrevistas y cultura.
+            Información, cobertura y mirada editorial.
         </p>
 
         <div class="buttons">
@@ -1014,7 +1190,11 @@ footer p {
     id="noticias"
 >
 
-    <h2 class="title">Noticias Destacadas de Ultimatum Magazine</h2>
+    <div class="section-heading-editorial">
+        <span>01 / ACTUALIDAD</span>
+        <h2 class="title">Historias destacadas</h2>
+        <p>Las noticias y coberturas que marcan la actualidad de Ultimatum Magazine.</p>
+    </div>
 
 
     <div class="grid">
